@@ -1,0 +1,56 @@
+first let us decrypt masks to find out passwords and then we can reverse the given RC4 to find out each byte of the flag.
+
+1 => (( (c - ord("0") + i) % 10) + ord("0") ) #if not in ascii lower
+
+2 => (( (c - ord("a") + i) % 26) + ord("a") ) #if in ascii lower
+
+i estimate that 1 is used if the character is ascii lowercase and 2 is used for the numerical characters.
+c is the character and i is the index.
+
+there are various candidates for passwords for each mask. we shall first deduce all candidate passwords for each mask and then we can deduce a function for decrypting RC4 for finding a byte of the flag. We shall have to guess the flag from thousands of candidates similar to the itsybitsy spider question.
+
+there is a catch in the key generation, it should select first 8 characters of the flag, instead, it is just taking the 8th character of the flag from a interator and then making the eight length list for the key in the hex form.
+the key generation for the string "qwertyuiop" is as follows:
+
+bytearray(b'qwertyuiop')
+0 q
+1 w
+2 e
+3 r
+4 t
+5 y
+6 u
+7 i
+key = [0x69, 0x69, 0x69, 0x69, 0x69, 0x69, 0x69, 0x69]
+0 o
+1 p
+2 q
+3 w
+4 e
+5 r
+6 t
+7 y
+key = [0x79, 0x79, 0x79, 0x79, 0x79, 0x79, 0x79, 0x79]
+0 u
+1 i
+2 o
+3 p
+4 q
+5 w
+6 e
+7 r
+key = [0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72]
+
+now i think decrypting this buggy RC4 algorithm shall be easy because now there is no use of swapping.
+
+we now just have to guess the length of the flag so that repeating sequence can fall into place.
+the sequence falls into place after every 8 bits and is sorted by the id numbers.
+if an id doent exist then we just have to skip 8 places for it.
+
+bruting it for flag length 10 to 100,
+
+we finally find it at length 43.
+
+flag: flag{crypto_is_stupid_and_python_is_stupid}
+
+it is indeed.

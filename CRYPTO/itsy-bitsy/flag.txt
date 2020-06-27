@@ -1,0 +1,30 @@
+#input requires i and j and calculates random integers between 2^i and 2^j-1,
+#so we restrict the space by entering the numbers i as 1 and j as 2.
+
+# the output received is as follows:
+#Enter an integer i such that i > 0: 1
+#Enter an integer j such that j > i > 0: 2
+#Ciphertext: 0111001001001100101100011101000011010010010110110001111100001001110001001000110011110011100100000001101100000001001101001101010111010000111101000011100100001000100001000100000100000100010101001111001011100110100000000001100100101000011110001001010111000001000001110000001111010001000000000110100101010
+
+# the ciphertext is made after the flagbits and the randombits are xored together.
+#since we have restricted the randomnumberspace, the randomno. used in this result is either 2 or 3 that is either 10 or 11.
+#either way, the first bit is fixed and we shall now find by bruteforce which sequence of randomnumbers are used.
+
+# the ciphertext is 301 bits.
+# each character in the flag is seven bits. in range 2^6 and 2^7.
+# and each random bit is of length 2.
+# we shall brute force the random sequence.
+
+# the flag is 43 characters long.
+# since 2^150 is a large sample space, we shall work in order to reduce it. 
+# for guessing two character of the flag, we just have to guess 7 random inputs. that is 2^7 = 128. which is a smaller space and we can just go on appending the flag and find it at the end.
+
+
+
+#
+# go on checking the output.txt file that is created in the directory and try to make sense of the words that are formed.
+# i first tried to solve the question with guessing 2 or 4 characters at a time.
+# i restricted the guesses to lowercase characters only and some special characters like underscore and curly braces.
+#next i tried guessing 6 characters, it is a lot of search space but finally after hours of drilling, i got the flag.
+
+flag: flag{bits_leaking_out_down_the_water_spout}

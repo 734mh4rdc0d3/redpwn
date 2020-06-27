@@ -1,0 +1,5 @@
+text from flag file is encoded in base64 25 times.
+
+we just need to reverse it.
+
+flag:  flag{l00ks_l1ke_a_l0t_of_64s}

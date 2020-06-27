@@ -1,0 +1,9 @@
+classic vanilla rsa problem.
+
+only the number n was factorized into many primes.
+it can be found by the factordb.com
+
+phi as calculated in rsa is (p-1)X(q-1)
+here we can just simply multiply all the (factors -1) to calculate the phi and the rest procedure is same.
+
+flag: flag{t0000_m4nyyyy_pr1m355555}

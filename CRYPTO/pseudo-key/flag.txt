@@ -1,0 +1,13 @@
+the key is made after doubling the index and mod 26
+
+the key character can have candidates like,
+	if we reached an "i" in the pseudo-key, we may have an e (4) or r(17) in the original key. 
+
+generating all key combinations with the bit mapping, and decrypting the ciphertext, we can get the flag.
+
+i guess, actually Keys are not always as they seem...
+
+key: redpwwwnctf 
+plaintext: i_guess_pseudo_keys_are_pseudo_secure
+
+flag: flag{i_guess_pseudo_keys_are_pseudo_secure}
